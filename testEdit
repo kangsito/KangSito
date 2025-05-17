@@ -1,0 +1,39 @@
+{
+    "title": "Recording 17/05/2025 at 16:18:04",
+    "steps": [
+      
+        {
+            "type": "navigate",
+            "url": "chrome://new-tab-page/",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "chrome://new-tab-page/",
+                    "title": "New Tab"
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "chrome-untrusted://new-tab-page/one-google-bar?paramsencoded=",
+            "selectors": [
+                [
+                    "xpath///*[@id=\"gbwa\"]/div/a"
+                ]
+            ],
+            "offsetY": 23,
+            "offsetX": 28
+        },
+        {
+            "type": "click",
+            "target": "chrome-untrusted://new-tab-page/one-google-bar?paramsencoded=",
+            "selectors": [
+                [
+                    "xpath///*[@id=\"gbwa\"]/div/a"
+                ]
+            ],
+            "offsetY": 23,
+            "offsetX": 28
+        }
+    ]
+}
