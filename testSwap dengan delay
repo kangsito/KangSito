@@ -1,0 +1,34 @@
+function clickElementWithDelay(xpath, delay, callback) {
+  setTimeout(() => {
+    let element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    if (element) {
+      element.click();
+      console.log(`Berhasil mengklik elemen: ${xpath}`);
+    } else {
+      console.log(`Elemen tidak ditemukan: ${xpath}`);
+    }
+    if (callback) callback(); // Lanjut ke langkah berikutnya
+  }, delay);
+}
+
+// Daftar langkah XPath
+const steps = [
+  '//*[@id="root"]/div/main/div[1]/div/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div/img',
+  '//*[@id="root"]/div/main/div[1]/div/div[2]/div[2]/div[2]/div[2]/div[2]/div/div/div[2]/div/p[3]',
+  '//*[@id="root"]/div/main/div[1]/div/div[2]/div/div[2]/div[1]/div[1]/div[1]/div[1]/div/div/p',
+  '//*[@id="root"]/div/main/div[1]/div/div[2]/div/div[2]/div[1]/div[3]/button'
+];
+
+// Eksekusi setiap langkah dengan delay 2000ms (2 detik)
+function executeSteps(index = 0) {
+  if (index < steps.length) {
+    clickElementWithDelay(steps[index], 2000, () => {
+      executeSteps(index + 1); // Lanjut ke langkah berikutnya
+    });
+  } else {
+    console.log("Semua langkah selesai.");
+  }
+}
+
+// Jalankan langkah
+executeSteps();
